@@ -1,21 +1,11 @@
-const reducer = (props, fn) => (state = {}, action) => {
-  let preState;
+const reducer = (props, fn) => (state = props.initState || {}, action) => {
+  let preState = state;
 
-  switch (action[props.actionLabel || "type"]) {
-    case props.LOADING_START:
-      preState = props.start(state, action);
+  for (const prop of props.cases) {
+    if (action.type === prop.type) {
+      preState = prop.callback(state, action);
       break;
-
-    case props.LOADING_FAILED:
-      preState = props.failed(state, action);
-      break;
-
-    case props.LOADING_SUCCEEDED:
-      preState = props.succeeded(state, action);
-      break;
-
-    default:
-      preState = state;
+    }
   }
 
   return fn(preState, action);

@@ -8,12 +8,22 @@ describe("fcPack", () => {
   const LOADING_SUCCEEDED = "MY_NAMESPACE/LOADING_SUCCEEDED";
 
   const props = {
-    LOADING_START,
-    start: state => Object.assign({}, state, { loadingState: "start" }),
-    LOADING_FAILED,
-    failed: state => Object.assign({}, state, { loadingState: "failed" }),
-    LOADING_SUCCEEDED,
-    succeeded: state => Object.assign({}, state, { loadingState: "succeeded" })
+    initState: { foo: 2 },
+    cases: [
+      {
+        type: LOADING_START,
+        callback: state => Object.assign({}, state, { loadingState: "start" })
+      },
+      {
+        type: LOADING_FAILED,
+        callback: state => Object.assign({}, state, { loadingState: "failed" })
+      },
+      {
+        type: LOADING_SUCCEEDED,
+        callback: state =>
+          Object.assign({}, state, { loadingState: "succeeded" })
+      }
+    ]
   };
 
   const reducer = (state, action) => {
@@ -41,6 +51,12 @@ describe("fcPack", () => {
   it("has a module", () => {
     const expected = "function";
     const actual = typeof commonReducer;
+    expect(expected).toEqual(actual);
+  });
+
+  it("sets init state", () => {
+    const expected = 2;
+    const actual = store.getState().myState.foo;
     expect(expected).toEqual(actual);
   });
 
