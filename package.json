@@ -1,0 +1,16 @@
+{
+  "name": "fidde-pack",
+  "version": "1.0.0",
+  "description": "Create a common reducer that handles common actions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "author": "Fredrik Christenson",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "23.6.0",
+    "redux": "4.0.1"
+  }
+}
