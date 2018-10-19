@@ -1,5 +1,5 @@
 {
-  "name": "fidde-pack",
+  "name": "fc-pack",
   "version": "1.0.0",
   "description": "Create a common reducer that handles common actions.",
   "main": "index.js",

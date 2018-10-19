@@ -1,7 +1,7 @@
-const commonReducer = require("../");
+const commonReducer = require("..");
 const { combineReducers, createStore } = require("redux");
 
-describe("fiddePack", () => {
+describe("fcPack", () => {
   const SET_FOO = "MY_NAMESPACE/SET_FOO";
   const LOADING_START = "MY_NAMESPACE/LOADING_START";
   const LOADING_FAILED = "MY_NAMESPACE/LOADING_FAILED";
